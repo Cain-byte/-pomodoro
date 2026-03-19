@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Pomodoro</title>
+<--https://github.com/Cain-byte para mais aplicações legais!-->
+
+<--CSS-->
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #dbeafe, #fbcfe8);
+  }
+
+  .card {
+    width: 320px;
+    padding: 30px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    text-align: center;
+  }
+
+  .emoji {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    transition: 0.3s;
+  }
+
+  .timer {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 15px 0;
+  }
+
+  input {
+    width: 80px;
+    padding: 8px;
+    border-radius: 10px;
+    border: none;
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    outline: none;
+  }
+
+  button {
+    margin: 5px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+  }
+<--cor botão começar-->
+  .start {
+    background: #86efac;
+  }
+<--cor botão reset-->
+  .reset {
+    background: #fca5a5;
+  }
+
+  button:hover {
+    transform: scale(1.05);
+  }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <div class="emoji" id="emoji">😴</div>
+
+  <div class="timer" id="timer">25:00</div>
+
+  <input type="number" id="minutesInput" placeholder="min" min="1">
+
+  <br>
+
+  <button class="start" onclick="startTimer()">Começar</button>
+  <button class="reset" onclick="resetTimer()">Reset</button>
+</div>
+
+<--Javascript--->
+<script>
+let time = 25 * 60;
+let timer;
+let running = false;
+
+const emojis = ["😴", "😃", "🤓", "🔥", "🚀", "💻", "📚", "🧠", "☕", "⚡",
+"🎯", "🕒", "😌", "😎", "🥱", "💡", "📈", "🏆", "🧘‍♂️", "🌱","🍅", "📖", "✍️", "🔒", "🎧", "🌟", "💪", "🧩", "🧪", "🎨"];
+
+function updateDisplay() {
+  const min = Math.floor(time / 60);
+  const sec = time % 60;
+
+  document.getElementById("timer").textContent =
+    String(min).padStart(2, '0') + ":" +
+    String(sec).padStart(2, '0');
+}
+
+function changeEmoji() {
+  const random = Math.floor(Math.random() * emojis.length);
+  document.getElementById("emoji").textContent = emojis[random];
+}
+
+function startTimer() {
+  if (running) return;
+
+  const input = document.getElementById("minutesInput").value;
+  if (input) {
+    time = input * 60;
+  }
+
+  changeEmoji();
+  running = true;
+
+  timer = setInterval(() => {
+    time--;
+
+    if (time <= 0) {
+      clearInterval(timer);
+      running = false;
+      document.getElementById("emoji").textContent = "✅";
+      alert("Tempo acabou!");
+    }
+
+    updateDisplay();
+  }, 1000);
+}
+
+function resetTimer() {
+  clearInterval(timer);
+  running = false;
+  time = 25 * 60;
+  document.getElementById("emoji").textContent = "😴";
+  updateDisplay();
+}
+
+updateDisplay();
+</script>
+<--https://github.com/Cain-byte para mais aplicações legais!-->
+
+</body>
+</html>
