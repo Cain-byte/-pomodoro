@@ -1,9 +1,11 @@
 <div  align="center">
-<img src="img.png" alt="Cain-byte" width="150" style="display:block; margin: 10px auto;">
+<img src="/asset/print.png" alt="Cain-byte" width="700" style="display:block; margin: 10px auto;">
 </div>
 <hr />
 
 ## 🍅 Pomodoro
-Aplicativo de produtividade pomodoro. Você pode usar direto no navegador ou compilar com Electron para ter um app separado.
+Aplicativo de produtividade pomodoro bem traquilo para você usar direto no navegador (ou compilar com Electron para ter um app separado - fica por volta de 300MB).
 
-⏲️Ao clicar em iniciar, ele irá rodar o tempo conforme o informado. Padrão é 25 minutos. 
+⏲️ Para utiliar, você só precisa clicar em começar. O tempo pode ser alterado no campo indicado e ao clicar reset, ele volta para o valor original de 25 min. 
+<hr />
+<img src="/asset/img.png" alt="Cain-byte" width="100"  margin-right: 10px;"> Gosto de fazer essas soluções rápidas quando me deparo com alguma necessidade e não quero gastar dinheiro ou me registrar em alguma plataforma. E você pode me ajudar indo lá no https://livepix.gg/caindev e dar uma forcinha e/ou ideia para um novo projeto. 
